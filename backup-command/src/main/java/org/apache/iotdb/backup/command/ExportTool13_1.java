@@ -138,9 +138,9 @@ public class ExportTool13_1 extends AbstractCsvTool {
             System.out.println("Encounter an error, because: " + e1.getMessage());
             System.exit(CODE_ERROR);
         }
-        if (!checkTimeFormat()) {
-            System.exit(CODE_ERROR);
-        }
+//        if (!checkTimeFormat()) {
+//            System.exit(CODE_ERROR);
+//        }
         return commandLine;
     }
 
@@ -148,10 +148,10 @@ public class ExportTool13_1 extends AbstractCsvTool {
         fileFloder = checkRequiredArg(FILE_FLODER_ARGS, FILE_FLODER_NAME, commandLine);
         iotPath = checkRequiredArg(IOT_PATH_ARGS,IOT_PATH_NAME,commandLine);
 
-        timeFormat = commandLine.getOptionValue(TIME_FORMAT_ARGS);
-        if (timeFormat == null) {
-            timeFormat = "default";
-        }
+//        timeFormat = commandLine.getOptionValue(TIME_FORMAT_ARGS);
+//        if (timeFormat == null) {
+//            timeFormat = "default";
+//        }
         timeZoneID = commandLine.getOptionValue(TIME_ZONE_ARGS);
 
         if (!fileFloder.endsWith("/") && !fileFloder.endsWith("\\")) {
@@ -231,16 +231,16 @@ public class ExportTool13_1 extends AbstractCsvTool {
                         .build();
         options.addOption(opTargetFile);
 
-        Option opTimeFormat =
-                Option.builder(TIME_FORMAT_ARGS)
-                        .argName(TIME_FORMAT_NAME)
-                        .hasArg()
-                        .desc(
-                                "Output time Format in csv file. "
-                                        + "You can choose 1) timestamp, number, long 2) ISO8601, default 3) "
-                                        + "user-defined pattern like yyyy-MM-dd\\ HH:mm:ss, default ISO8601 (optional)")
-                        .build();
-        options.addOption(opTimeFormat);
+//        Option opTimeFormat =
+//                Option.builder(TIME_FORMAT_ARGS)
+//                        .argName(TIME_FORMAT_NAME)
+//                        .hasArg()
+//                        .desc(
+//                                "Output time Format in csv file. "
+//                                        + "You can choose 1) timestamp, number, long 2) ISO8601, default 3) "
+//                                        + "user-defined pattern like yyyy-MM-dd\\ HH:mm:ss, default ISO8601 (optional)")
+//                        .build();
+//        options.addOption(opTimeFormat);
 
         Option opTimeZone =
                 Option.builder(TIME_ZONE_ARGS)

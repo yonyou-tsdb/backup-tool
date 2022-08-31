@@ -108,7 +108,7 @@ public abstract class AbstractCsvTool {
     protected static ZoneId zoneId;
 
     protected static String timeZoneID;
-    protected static String timeFormat;
+//    protected static String timeFormat;
     protected static Session session;
     protected static String charSet;
 
@@ -141,23 +141,23 @@ public abstract class AbstractCsvTool {
         password = commandLine.getOptionValue(PASSWORD_ARGS);
     }
 
-    protected static boolean checkTimeFormat() {
-        for (String format : TIME_FORMAT) {
-            if (timeFormat.equals(format)) {
-                return true;
-            }
-        }
-        for (String format : STRING_TIME_FORMAT) {
-            if (timeFormat.equals(format)) {
-                return true;
-            }
-        }
-        System.out.printf(
-                "Input time format %s is not supported, "
-                        + "please input like yyyy-MM-dd\\ HH:mm:ss.SSS or yyyy-MM-dd'T'HH:mm:ss.SSS%n",
-                timeFormat);
-        return false;
-    }
+//    protected static boolean checkTimeFormat() {
+//        for (String format : TIME_FORMAT) {
+//            if (timeFormat.equals(format)) {
+//                return true;
+//            }
+//        }
+//        for (String format : STRING_TIME_FORMAT) {
+//            if (timeFormat.equals(format)) {
+//                return true;
+//            }
+//        }
+//        System.out.printf(
+//                "Input time format %s is not supported, "
+//                        + "please input like yyyy-MM-dd\\ HH:mm:ss.SSS or yyyy-MM-dd'T'HH:mm:ss.SSS%n",
+//                timeFormat);
+//        return false;
+//    }
 
     protected static Options createNewOptions() {
         Options options = new Options();

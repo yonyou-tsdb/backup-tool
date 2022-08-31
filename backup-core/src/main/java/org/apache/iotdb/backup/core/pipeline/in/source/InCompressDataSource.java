@@ -1,5 +1,6 @@
 package org.apache.iotdb.backup.core.pipeline.in.source;
 
+import org.apache.iotdb.backup.core.exception.ParamCheckException;
 import org.apache.iotdb.backup.core.model.DeviceModel;
 import org.apache.iotdb.backup.core.model.FieldCopy;
 import org.apache.iotdb.backup.core.model.IField;
@@ -144,6 +145,9 @@ public class InCompressDataSource extends PipeSource<String, TimeSeriesRowModel,
                         String type = record.getFields().get(position).getStringValue();
                         tsDataTypeMap.put(measurement,importPipelineService.parseTsDataType(type));
                     }
+                    if(tsDataTypeMap.size() == 0){
+                        throw new ParamCheckException("the timeseries of device:" + ExportPipelineService.formatPath(deviceName,version) + "do not exist");
+                    }
 
                     while (true){
                         List<TimeSeriesRowModel> rowModelList = new ArrayList<>();
@@ -194,7 +198,7 @@ public class InCompressDataSource extends PipeSource<String, TimeSeriesRowModel,
                     finishRowModel.setIFieldList(new ArrayList<>());
                     sink.next(finishRowModel);
                     sink.complete();
-                } catch (IOException |StatementExecutionException | IoTDBConnectionException e) {
+                } catch (IOException | StatementExecutionException | IoTDBConnectionException | ParamCheckException e) {
                     sink.error(e);
                 } finally {
                     try {
