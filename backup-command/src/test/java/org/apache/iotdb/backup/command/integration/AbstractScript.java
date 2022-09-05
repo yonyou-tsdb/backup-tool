@@ -73,7 +73,7 @@ public abstract class AbstractScript {
       try {
         Thread.sleep(100);
       } catch (InterruptedException e) {
-        log.error("异常信息:",e);
+        log.error("异常信息:", e);
         fail();
       }
     }

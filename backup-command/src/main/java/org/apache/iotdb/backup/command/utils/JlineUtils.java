@@ -20,6 +20,7 @@
 package org.apache.iotdb.backup.command.utils;
 
 import org.apache.iotdb.db.qp.sql.SqlLexer;
+
 import org.jline.reader.LineReader;
 import org.jline.reader.LineReader.Option;
 import org.jline.reader.LineReaderBuilder;
@@ -84,7 +85,7 @@ public class JlineUtils {
 
     // TODO: since the lexer doesn't produce tokens for quotation marks, disable the highlighter to
     // avoid incorrect inputs.
-    //    builder.highlighter(new IoTDBSyntaxHighlighter());
+    // builder.highlighter(new IoTDBSyntaxHighlighter());
 
     builder.completer(new StringsCompleter(SQL_KEYWORDS));
 

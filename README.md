@@ -17,9 +17,6 @@ integration测试需要指定一台iotdbserver，~~配置类为utils-core项目�
 修改为配置文件了，配置文件为test包下resource下的sessionConfig.properties
 你可以在这里配置远程或者本地的iotdbserver。  
 
-**2022-5-23 更新**  
-jar包已经更新到公司私仓里,公有仓库目前没有   
-
 **2022-08-03 更新**  
 版本变更为0.13.1  
 添加功能：  
@@ -37,7 +34,7 @@ jar包已经更新到公司私仓里,公有仓库目前没有
 - -p 端口号
 - -u 用户名
 - -pw 密码
-- -f fileFolder 导入导出制定文件夹
+- -f fileFolder 导入导出指定文件夹
 - -sy 是否需要时间序列结构
 - -se 文件生成策略
 - -c 压缩格式  目前支持SQL、CSV、SNAPPY、GZIP、LZ4
